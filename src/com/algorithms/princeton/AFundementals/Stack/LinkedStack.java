@@ -15,7 +15,7 @@
  *
  ******************************************************************************/
 
-package com.algorithms.princeton.AFundementals.Model;
+package com.algorithms.princeton.AFundementals.Stack;
 
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
