@@ -57,7 +57,6 @@ public class Interval1D {
      * @throws IllegalArgumentException if either {@code min} or {@code max}
      *         is {@code Double.NaN}, {@code Double.POSITIVE_INFINITY} or
      *         {@code Double.NEGATIVE_INFINITY}
-
      */
     public Interval1D(double min, double max) {
         if (Double.isInfinite(min) || Double.isInfinite(max))
