@@ -83,7 +83,7 @@ import edu.princeton.cs.algs4.QuickFindUF;
  *  @author Kevin Wayne
  */
 
-public class UF {
+public class  UF {
 
     private int[] parent;  // parent[i] = parent of i
     private byte[] rank;   // rank[i] = rank of subtree rooted at i (never more than 31)

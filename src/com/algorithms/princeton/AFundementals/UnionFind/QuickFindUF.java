@@ -177,7 +177,6 @@ public class QuickFindUF {
         }
         StdOut.println(uf.count() + " components");
     }
-
 }
 
 /******************************************************************************

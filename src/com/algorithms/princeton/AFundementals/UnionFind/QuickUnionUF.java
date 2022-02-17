@@ -66,6 +66,7 @@ import edu.princeton.cs.algs4.WeightedQuickUnionUF;
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
  */
+
 public class QuickUnionUF {
     private int[] parent;  // parent[i] = parent of i
     private int count;     // number of components
@@ -81,9 +82,8 @@ public class QuickUnionUF {
     public QuickUnionUF(int n) {
         parent = new int[n];
         count = n;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++)
             parent[i] = i;
-        }
     }
 
     /**
@@ -171,8 +171,6 @@ public class QuickUnionUF {
         }
         StdOut.println(uf.count() + " components");
     }
-
-
 }
 
 /******************************************************************************
