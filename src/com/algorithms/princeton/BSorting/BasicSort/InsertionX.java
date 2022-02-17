@@ -1,42 +1,43 @@
 package com.algorithms.princeton.BSorting.BasicSort;
 
-import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
 /******************************************************************************
- *  Compilation:  javac Shell.java
- *  Execution:    java Shell < input.txt
+ *  Compilation:  javac InsertionX.java
+ *  Execution:    java InsertionX < input.txt
  *  Dependencies: StdOut.java StdIn.java
  *  Data files:   https://algs4.cs.princeton.edu/21elementary/tiny.txt
  *                https://algs4.cs.princeton.edu/21elementary/words3.txt
  *
- *  Sorts a sequence of strings from standard input using shellsort.
+ *  Sorts a sequence of strings from standard input using an optimized
+ *  version of insertion sort that uses half exchanges instead of
+ *  full exchanges to reduce data movement..
  *
  *  % more tiny.txt
  *  S O R T E X A M P L E
  *
- *  % java Shell < tiny.txt
+ *  % java InsertionX < tiny.txt
  *  A E E L M O P R S T X                 [ one string per line ]
  *
  *  % more words3.txt
  *  bed bug dad yes zoo ... all bad yet
  *
- *  % java Shell < words3.txt
- *  all bad bed bug dad ... yes yet zoo    [ one string per line ]
- *
+ *  % java InsertionX < words3.txt
+ *  all bad bed bug dad ... yes yet zoo   [ one string per line ]
  *
  ******************************************************************************/
-
 /**
- *  The {@code Shell} class provides static methods for sorting an
- *  array using <em>Shellsort</em> with
- *  <a href = "https://oeis.org/A003462"> Knuth's increment sequence</a>
- *  (1, 4, 13, 40, ...). In the worst case, this implementation makes
- *  &Theta;(<em>n</em><sup>3/2</sup>) compares and exchanges to sort
- *  an array of length <em>n</em>.
+ *  The {@code InsertionX} class provides static methods for sorting
+ *  an array using an optimized version of insertion sort (with half exchanges
+ *  and a sentinel).
  *  <p>
- *  This sorting algorithm is not stable.
+ *  In the worst case, this implementation makes ~ 1/2 <em>n</em><sup>2</sup>
+ *  compares to sort an array of length <em>n</em>.
+ *  So, it is not suitable for sorting large arrays
+ *  (unless the number of inversions is small).
+ *  <p>
+ *  This sorting algorithm is stable.
  *  It uses &Theta;(1) extra memory (not including the input array).
  *  <p>
  *  For additional documentation, see
@@ -46,10 +47,11 @@ import edu.princeton.cs.algs4.StdOut;
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
  */
-public class Shell {
+
+public class InsertionX {
 
     // This class should not be instantiated.
-    private Shell() { }
+    private InsertionX() { }
 
     /**
      * Rearranges the array in ascending order, using the natural order.
@@ -58,23 +60,30 @@ public class Shell {
     public static void sort(Comparable[] a) {
         int n = a.length;
 
-        // 3x+1 increment sequence:  1, 4, 13, 40, 121, 364, 1093, ...
-        int h = 1;
-        while (h < n/3) h = 3*h + 1;
-
-        while (h >= 1) {
-            // h-sort the array
-            for (int i = h; i < n; i++) {
-                for (int j = i; j >= h && less(a[j], a[j-h]); j -= h) {
-                    exch(a, j, j-h);
-                }
+        // put smallest element in position to serve as sentinel
+        int exchanges = 0;
+        for (int i = n-1; i > 0; i--) {
+            if (less(a[i], a[i-1])) {
+                exch(a, i, i-1);
+                exchanges++;
             }
-            assert isHsorted(a, h);
-            h /= 3;
         }
+        if (exchanges == 0) return;
+
+
+        // insertion sort with half-exchanges
+        for (int i = 2; i < n; i++) {
+            Comparable v = a[i];
+            int j = i;
+            while (less(v, a[j-1])) {
+                a[j] = a[j-1];
+                j--;
+            }
+            a[j] = v;
+        }
+
         assert isSorted(a);
     }
-
 
 
     /***************************************************************************
@@ -103,13 +112,6 @@ public class Shell {
         return true;
     }
 
-    // is the array h-sorted?
-    private static boolean isHsorted(Comparable[] a, int h) {
-        for (int i = h; i < a.length; i++)
-            if (less(a[i], a[i-h])) return false;
-        return true;
-    }
-
     // print array to standard output
     private static void show(Comparable[] a) {
         for (int i = 0; i < a.length; i++) {
@@ -118,14 +120,14 @@ public class Shell {
     }
 
     /**
-     * Reads in a sequence of strings from standard input; Shellsorts them;
+     * Reads in a sequence of strings from standard input; insertion sorts them;
      * and prints them to standard output in ascending order.
      *
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
         String[] a = StdIn.readAllStrings();
-        Shell.sort(a);
+        InsertionX.sort(a);
         show(a);
     }
 
