@@ -1,4 +1,4 @@
-package com.princeton.algs4.AFundementals.exercise;
+package com.princeton.algs4.exercise.A;
 
 /***************************************************************************************************
  * 1.1.21 编写一段程序，从标准输入按行读取数据，其中每行都包含一个名字和两个整数。

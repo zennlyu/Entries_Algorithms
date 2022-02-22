@@ -1,4 +1,4 @@
-package com.princeton.algs4.AFundementals.exercise;
+package com.princeton.algs4.exercise.A;
 
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 

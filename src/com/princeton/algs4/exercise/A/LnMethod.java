@@ -1,4 +1,4 @@
-package com.princeton.algs4.AFundementals.exercise;
+package com.princeton.algs4.exercise.A;
 
 // 1.1.20 编写一个递归的静态方法计算 ln(N!) 的值
 import edu.princeton.cs.algs4.StdOut;

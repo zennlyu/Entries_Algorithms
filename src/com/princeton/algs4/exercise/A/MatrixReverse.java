@@ -1,4 +1,4 @@
-package com.princeton.algs4.AFundementals.exercise;
+package com.princeton.algs4.exercise.A;
 
 /****
  * 1.1.13 编写一段代码，打印出一个M行N列的二维数组的转置(交换行和列）
