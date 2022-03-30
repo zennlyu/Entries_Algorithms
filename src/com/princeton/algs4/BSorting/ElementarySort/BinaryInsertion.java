@@ -62,7 +62,6 @@ public class BinaryInsertion {
     public static void sort(Comparable[] a) {
         int n = a.length;
         for (int i = 1; i < n; i++) {
-
             // binary search to determine index j at which to insert a[i]
             Comparable v = a[i];
             int lo = 0, hi = i;

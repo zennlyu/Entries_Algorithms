@@ -137,8 +137,6 @@ public class Selection {
         return true;
     }
 
-
-
     // print array to standard output
     private static void show(Comparable[] a) {
         for (int i = 0; i < a.length; i++) {
