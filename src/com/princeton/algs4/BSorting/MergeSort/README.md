@@ -1,6 +1,6 @@
 # Merge Sort
 
-## ‣ Inplace & Up-bottom Merge Sort 
+## ‣ Inplace & Up-bottom Merge Sort
 
 ```java
 private static void merge(Comparable[] a, Comparable[] aux, int lo, int mid, int hi) {
@@ -183,10 +183,50 @@ button-up 适合用链表组织的数据，只需要重新组织链表链接就�
 
 都可以尝试，是希望用 Merge.sort() 化整为零地递归解决，还是 MergeBU.sort() 循序渐进地解决问题
 
-## ‣ sorting complexity 
+## ‣ Sorting Complexity 
 
+#### Complexity of sorting
 
+Computational complexity. —— Framework to study efficiency of algorithms for solving a particular problem X. 
 
-## ‣ comparators
+Model of computation. —— Allowable operations. 
 
-## ‣ stability
+Cost model. —— Operation count(s). 
+
+Upper bound. —— Cost guarantee provided by some algorithm for X. 
+
+Lower bound. —— Proven limit on cost guarantee of all algorithms for X. 
+
+Optimal algorithm. —— Algorithm with best possible cost guarantee for X.
+
+#### Decision tree (for 3 distinct items a, b, and c)
+
+![image-20220425193416713](../../../../../../utils/statics/merge8.png)
+
+#### Compare-based lower bound for sorting
+
+**Proposition.** Any compare-based sorting algorithm must use at least lg ( N ! ) ~ N lg N compares in the worst-case. 
+
+**Pf.** 
+
+- Assume array consists of N distinct values a1 through aN. 
+- Worst case dictated by height h of decision tree. 
+- Binary tree of height h has at most 2 h leaves. 
+- N ! different orderings ⇒ at least N ! leaves
+
+![image-20220425193539232](../../../../../../utils/statics/merge9.png)
+
+**Proposition.** Any compare-based sorting algorithm must use at least lg ( N ! ) ~ N lg N compares in the worst-case. 
+
+**Pf.** 
+
+- Assume array consists of N distinct values a1 through aN.
+- Worst case dictated by height h of decision tree.
+- Binary tree of height h has at most 2^h leaves.
+- N! different orderings ⇒ at least N! leaves.
+
+![image-20220425193658837](../../../../../../utils/statics/merge10.png)
+
+## ‣ Comparators
+
+## ‣ Stability
