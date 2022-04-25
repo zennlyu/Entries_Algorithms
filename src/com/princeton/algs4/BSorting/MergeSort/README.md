@@ -1,6 +1,6 @@
 # Merge Sort
 
-## ‣ merge sort 
+## ‣ Inplace & Up-bottom Merge Sort 
 
 ```java
 private static void merge(Comparable[] a, Comparable[] aux, int lo, int mid, int hi) {
@@ -126,7 +126,7 @@ private static void sort(Comparable[] src, Comparable[] dst, int lo, int hi) {
 }
 ```
 
-Stop if already sorted. 
+**Stop if already sorted.** （2.2.8）
 
 - Is biggest item in first half ≤ smallest item in second half? 
 - Helps for partially-ordered arrays
@@ -143,7 +143,7 @@ private static void sort(Comparable[] a, Comparable[] aux, int lo, int hi)
 }
 ```
 
-**Eliminate the copy to the auxiliary array.** Save time (but not space) by switching the role of the input and auxiliary array in each recursive call.
+**Eliminate the copy to the auxiliary array.** Save time (but not space) by switching the role of the input and auxiliary array in each recursive call.（2.2.11）
 
 ```java
 private static void merge(Comparable[] a, Comparable[] aux, int lo, int mid, int hi)
@@ -167,11 +167,25 @@ private static void sort(Comparable[] a, Comparable[] aux, int lo, int hi)
 }
 ```
 
+![image-20220425191405752](../../../../../../utils/statics/merge5.png)
 
+![image-20220425191526976](../../../../../../utils/statics/merge6.png)
 
-## ‣ bottom-up merge sort 
+可以用归并排序处理数百万甚至更大规模的数组，主要缺点是辅助数组使用的额外空间和 N 的大小成正比。且还可以通过其他思考来大幅缩短归并所需实践
+
+## ‣ Bottom-up Merge Sort
+
+![image-20220425192527406](../../../../../../utils/statics/merge7.png)
+
+当数组长度为 2 的幂时，两种归并所用的 Compare 和 Array Access 正好相同，只是顺序不同，其他情况，会有不同（见 2.2.5）
+
+button-up 适合用链表组织的数据，只需要重新组织链表链接就可以原地排序（无需创建任何新的链表结点）
+
+都可以尝试，是希望用 Merge.sort() 化整为零地递归解决，还是 MergeBU.sort() 循序渐进地解决问题
 
 ## ‣ sorting complexity 
+
+
 
 ## ‣ comparators
 
