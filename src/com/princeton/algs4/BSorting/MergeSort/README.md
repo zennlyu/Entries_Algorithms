@@ -229,4 +229,29 @@ Optimal algorithm. —— Algorithm with best possible cost guarantee for X.
 
 ## ‣ Comparators
 
+Comparable Interface: sort using an alternate order.
+
+```java
+public interface Comparator<Key>
+    int compare(Key v, Key w)
+```
+
+Polar order: Given a point p, order points by polar angle they make with p.
+
+![image-20220426224341736](../../../../../../utils/statics/merge11.png)
+
+Application. Graham scan algorithm for convex hull. [see previous lecture]
+
+High-school trig solution. Compute polar angle θ w.r.t. p using atan2(). 
+
+Drawback. Evaluating a trigonometric function is expensive
+
+**A ccw-based solution.** 
+
+- If q1 is above p and q2 is below p, then q1 makes smaller polar angle. 
+
+- If q1 is below p and q2 is above p, then q1 makes larger polar angle. 
+
+- Otherwise, ccw(p, q1, q2) identifies which of q1 or q2 makes larger angle.
+
 ## ‣ Stability
