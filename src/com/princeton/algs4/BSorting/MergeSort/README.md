@@ -254,4 +254,6 @@ Drawback. Evaluating a trigonometric function is expensive
 
 - Otherwise, ccw(p, q1, q2) identifies which of q1 or q2 makes larger angle.
 
+
+
 ## ‣ Stability
