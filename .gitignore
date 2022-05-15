@@ -2,3 +2,5 @@
 *.DS_Store
 out/
 .idea/
+utils/algs4-data
+utils/algs4-data.zip
