@@ -1,4 +1,5 @@
 package com.princeton.coursera.week1;
+
 /**
 public class PercolationStats {
     // perform independent trials on an n-by-n grid

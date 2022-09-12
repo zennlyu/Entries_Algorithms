@@ -72,7 +72,7 @@ public class Merge {
             else                           a[k] = aux[i++];
         }
 
-        // postcondition: a[lo .. hi] is sorted
+        // post condition: a[lo .. hi] is sorted
         assert isSorted(a, lo, hi);
     }
 
